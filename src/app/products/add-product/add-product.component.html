@@ -1,0 +1,63 @@
+<form action="" [formGroup]="productForm" (ngSubmit)="onAddProduct()">
+  <div class="form-group">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="title..."
+      formControlName="title"
+    />
+  </div>
+
+  <div class="form-group">
+    <input
+      type="text"
+      placeholder="description..."
+      class="form-control"
+      formControlName="description"
+    />
+  </div>
+  <div class="form-group">
+    <div class="row">
+      <div class="col">
+        <input
+          type="text"
+          placeholder="category..."
+          class="form-control"
+          formControlName="category"
+        />
+      </div>
+      <div class="col">
+        <input
+          type="number"
+          class="form-control"
+          placeholder="price..."
+          formControlName="price"
+        />
+      </div>
+    </div>
+  </div>
+
+  <input
+    style="display: none"
+    type="file"
+    #fileInput
+    (change)="onImagePicked($event)"
+  />
+  <div class="form-group">
+    <button type="button" class="btn btn-light" (click)="fileInput.click()">
+      upload image
+    </button>
+  </div>
+  <div class="form-group" *ngIf="imagePath" class="image">
+    <img [src]="imagePath" alt="" />
+  </div>
+  <div class="form-group">
+    <button
+      [disabled]="productForm.invalid"
+      type="submit"
+      class="btn btn-light"
+    >
+      add product
+    </button>
+  </div>
+</form>
