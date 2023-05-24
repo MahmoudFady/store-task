@@ -21,4 +21,5 @@ input.ng-touched.ng-valid {
 }
 input.ng-touched.ng-invalid {
   border: 2px solid #f00;
+  back-ssnn
 }
